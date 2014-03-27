@@ -10,8 +10,10 @@ def is_number(s):
         return False
 def findAPNS(s):
     apns = []
-    exp = r'[0-9]{3}-[0-9]{4}-[0-9]{3}-[0-9]{2}'
-    exp1 = r'[0-9]{3} -[0-9]{4}-[0-9]{3}-[0-9]{2}'
+    expList = [
+    r'[0-9]{3}-[0-9]{4}-[0-9]{3}-[0-9]{2}',
+    r'[0-9]{3} -[0-9]{4}-[0-9]{3}-[0-9]{2}',
+    r'[0-9]{3}[A-Z] -[0-9]{4}-[0-9]{3}-[0-9]{2}']
     fPApns = re.findall(exp,s)
     if fPApns:
        for apn in fPApns:
@@ -26,6 +28,8 @@ def findAPNS(s):
         geocodeAddress(s)
     #print apns
     return apns   
+def makeMatch(exp, s):
+        
 
 def makeCSV(k,v):
     data = [k,v]
